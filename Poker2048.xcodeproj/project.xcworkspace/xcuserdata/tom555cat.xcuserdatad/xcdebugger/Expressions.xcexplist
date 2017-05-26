@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__37-[F3HPokerGameBoardView erasePokers:]_block_invoke_2151:F3HPokerGameBoardView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.parentViewController.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[F3HPokerGameBoardView insertPokerAtIndexPath:color:number:]:F3HPokerGameBoardView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "path.row">
+            </PersistentString>
+            <PersistentString
+               value = "self.backgroundTiles[row*self.dimension+section]">
+            </PersistentString>
+            <PersistentString
+               value = "self.backgroundTiles[[NSString stringWithFormat:@&quot;%d&quot;, path.row*self.dimension+path.section]]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[F3HPokerGameBoardView erasePokers:]:F3HPokerGameBoardView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "path.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardBackScrollViewController viewAtIndex:reusingView:]:CardBackScrollViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.viewSize*0.75f">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
