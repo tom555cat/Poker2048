@@ -5,7 +5,7 @@
 //  Created by tom555cat on 15/11/23.
 //  Copyright © 2015年 tom555cat. All rights reserved.
 //
-
+#import <AdSupport/AdSupport.h>
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -17,7 +17,69 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-        
+    
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    application.applicationIconBadgeNumber = 0;
+    
+    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    
+    // 3.0.0及以后版本注册可以这样写，也可以继续用旧的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //可以添加自定义categories
+        //    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        //      NSSet<UNNotificationCategory *> *categories;
+        //      entity.categories = categories;
+        //    }
+        //    else {
+        //      NSSet<UIUserNotificationCategory *> *categories;
+        //      entity.categories = categories;
+        //    }
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
+    // 3.0.0以前版本旧的注册方式
+    //  if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+    //#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+    //    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    //    entity.types = UNAuthorizationOptionAlert|UNAuthorizationOptionBadge|UNAuthorizationOptionSound;
+    //    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    //#endif
+    //  } else if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+    //      //可以添加自定义categories
+    //      [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+    //                                                        UIUserNotificationTypeSound |
+    //                                                        UIUserNotificationTypeAlert)
+    //                                            categories:nil];
+    //  } else {
+    //      //categories 必须为nil
+    //      [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+    //                                                        UIRemoteNotificationTypeSound |
+    //                                                        UIRemoteNotificationTypeAlert)
+    //                                            categories:nil];
+    //  }
+    
+    //如不需要使用IDFA，advertisingIdentifier 可为nil
+    [JPUSHService setupWithOption:launchOptions appKey:JGAPPKEY
+                          channel:channel
+                 apsForProduction:isProduction
+            advertisingIdentifier:advertisingId];
+    
+    //2.1.9版本新增获取registration id block接口。
+    [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+        if(resCode == 0){
+            NSLog(@"registrationID获取成功：%@",registrationID);
+            
+        }
+        else{
+            NSLog(@"registrationID获取失败，code：%d",resCode);
+        }
+    }];
+
+    
+    
+    
     // 启动界面等待1分钟
     [NSThread sleepForTimeInterval:1];
     return YES;

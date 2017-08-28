@@ -1,3 +1,58 @@
-PODFILE CHECKSUM: b7ffdbefd379afa44c6cdb59aaf823bae5706132
+PODS:
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - IQKeyboardManager (4.0.8)
+  - JCore (1.1.1)
+  - JPush (3.0.2):
+    - JCore (~> 1.1.1)
+  - JSONKit (1.5pre)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
+  - RDVTabBarController (1.1.9)
+  - Reachability (3.2)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SVProgressHUD (2.1.2)
 
-COCOAPODS: 1.2.0.beta.1
+DEPENDENCIES:
+  - AFNetworking (~> 3.0.4)
+  - IQKeyboardManager (~> 4.0.0)
+  - JPush
+  - JSONKit (~> 1.5pre)
+  - MJExtension
+  - MJRefresh (~> 3.1.0)
+  - RDVTabBarController (~> 1.1.9)
+  - Reachability (~> 3.2)
+  - SDWebImage (~> 3.7.5)
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  JCore: 2210a789c8efb7dc2a46b1c24d2209b995b18ad2
+  JPush: 01a693fafe51b93eafc2e368bbc7a7cc07e12ce4
+  JSONKit: bae313ce6a6c444f40489a6c0b023f399888871f
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+
+PODFILE CHECKSUM: 96f392495bdd68abda23bfa2c6ddd33080d0c247
+
+COCOAPODS: 1.2.1
