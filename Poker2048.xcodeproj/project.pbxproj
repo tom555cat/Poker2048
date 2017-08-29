@@ -36,7 +36,6 @@
 		2AEDDFEA1F54131D002991DE /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDDFCC1F54131D002991DE /* UIColor+Extension.m */; };
 		2AEDDFEB1F54131D002991DE /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDDFCE1F54131D002991DE /* UIColor+MyColor.m */; };
 		2AEDDFEC1F54131D002991DE /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDDFD01F54131D002991DE /* UIView+Extension.m */; };
-		2AEDDFEE1F54149B002991DE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEDDFED1F54149B002991DE /* GameKit.framework */; };
 		E906CAD11ECBF775005C8A99 /* SwipeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E906CAD01ECBF775005C8A99 /* SwipeCommand.m */; };
 		E90A56241C2F73BE00E82ADC /* JWBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A56231C2F73BE00E82ADC /* JWBlurView.m */; };
 		E90A56281C2F83E400E82ADC /* AchivementView.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A56271C2F83E400E82ADC /* AchivementView.m */; };
@@ -173,8 +172,7 @@
 		2AEDDFCE1F54131D002991DE /* UIColor+MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MyColor.m"; sourceTree = "<group>"; };
 		2AEDDFCF1F54131D002991DE /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		2AEDDFD01F54131D002991DE /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		2AEDDFED1F54149B002991DE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		2AEDDFEF1F54157C002991DE /* Poker2048.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poker2048.entitlements; sourceTree = SOURCE_ROOT; };
+		2AEDDFF21F541819002991DE /* Poker2048.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poker2048.entitlements; sourceTree = SOURCE_ROOT; };
 		5E6B53A5CE6A92B0BB506B36 /* Pods-Poker2048.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poker2048.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Poker2048/Pods-Poker2048.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA2849EF7D20D3E9680F82F /* Pods-Poker2048.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poker2048.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poker2048/Pods-Poker2048.release.xcconfig"; sourceTree = "<group>"; };
 		822B822A33290862E40A75EC /* libPods-Poker2048.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Poker2048.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,7 +282,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AEDDFEE1F54149B002991DE /* GameKit.framework in Frameworks */,
 				E93BC41F1CB6A55A00B42C4A /* libc++.tbd in Frameworks */,
 				E93BC41D1CB6A54600B42C4A /* libsqlite3.0.tbd in Frameworks */,
 				E93BC41B1CB6A53800B42C4A /* libz.tbd in Frameworks */,
@@ -447,7 +444,6 @@
 		42AD99E99AB21F71DC0788C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2AEDDFED1F54149B002991DE /* GameKit.framework */,
 				822B822A33290862E40A75EC /* libPods-Poker2048.a */,
 			);
 			name = Frameworks;
@@ -744,7 +740,7 @@
 		E9DAD9021C036D7200D5A9CD /* Poker2048 */ = {
 			isa = PBXGroup;
 			children = (
-				2AEDDFEF1F54157C002991DE /* Poker2048.entitlements */,
+				2AEDDFF21F541819002991DE /* Poker2048.entitlements */,
 				2AEDDF921F54131D002991DE /* Public */,
 				2AEDDFA11F54131D002991DE /* Tools */,
 				2AEDDF8A1F5412CF002991DE /* Macro */,
@@ -890,7 +886,7 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -1154,7 +1150,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ting Yang (EBJ7344WKM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ting Yang (EBJ7344WKM)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1173,9 +1170,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "a72ea5b4-51bd-459f-b0cd-493fcedfa1bf";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1199,7 +1197,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ting Yang (EBJ7344WKM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ting Yang (EBJ7344WKM)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1212,8 +1211,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "a72ea5b4-51bd-459f-b0cd-493fcedfa1bf";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1250,11 +1250,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qb.LWLotterySecond;
 				PRODUCT_NAME = Poker2048;
-				PROVISIONING_PROFILE = "a72ea5b4-51bd-459f-b0cd-493fcedfa1bf";
-				PROVISIONING_PROFILE_SPECIFIER = online_product_second_proversion;
+				PROVISIONING_PROFILE = "2a000a91-4ed2-48d3-acb4-7ace221fe6cb";
+				PROVISIONING_PROFILE_SPECIFIER = lottery_provision_product_second_adhoc;
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Tlm2048_1-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1289,10 +1291,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qb.LWLotterySecond;
 				PRODUCT_NAME = Poker2048;
-				PROVISIONING_PROFILE = "a72ea5b4-51bd-459f-b0cd-493fcedfa1bf";
-				PROVISIONING_PROFILE_SPECIFIER = online_product_second_proversion;
+				PROVISIONING_PROFILE = "2a000a91-4ed2-48d3-acb4-7ace221fe6cb";
+				PROVISIONING_PROFILE_SPECIFIER = lottery_provision_product_second_adhoc;
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Tlm2048_1-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
