@@ -19,7 +19,8 @@
 #import "DirectView.h"
 #import "DirectViewController.h"
 #import "PokerGameConstants.h"
-
+//webview请求超时时间
+#define TIMEOUT 10
 @interface PokerGameViewController () <PokerGameDelegate, ChooseCardBackDelegate>
 
 @property (strong, nonatomic) PokerGameBoardView *gameboard;
@@ -47,10 +48,15 @@
 @property (nonatomic) NSInteger erasedHeartNumber;
 @property (nonatomic) NSInteger erasedJokerNumber;
 
+
+@property (nonatomic,strong) NSString *url;
 @end
 
 @implementation PokerGameViewController
-
+{
+    UIView *maskView;
+    UIWebView *homeWeb;
+}
 #pragma mark - create game board
 
 - (void)viewDidLoad {
@@ -61,6 +67,18 @@
     [self authenticateUser];
     [self setupSwipeControls];
     [self setupGame];
+    
+    
+    
+//    if (1) {
+//        //第一次请求接口
+//        [self tryToLoad];
+//        //网络监听，网络变化时再次请求接口
+//        [self startToListenNow];
+//        
+//        [self addMaskView];
+//        [self addHomeWebView];
+//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -617,5 +635,131 @@ static const NSInteger defaultCardBack = -1;
     //self.leftCardLabel.attributedText = attributeString;
     [self.leftCardNumBtn setAttributedTitle:attributeString forState:UIControlStateNormal];
 }
+
+
+
+#pragma private methods
+- (void)tryToLoad
+{
+    [self requestGetAboutUs];
+}
+
+- (void)requestGetAboutUs
+{
+    
+    
+    [NetworkTool requestAFURL:BASEURL httpMethod:0 parameters:nil succeed:^(id json) {
+        //test
+                NSDictionary *dic=
+          @{@"appid":@"jiuwcomceshi",@"appname":@"\u6d4b\u8bd5\u7528",@"isshowwap":@"1",@"wapurl":@"http://vip.9w100.com/",@"status":@(1),@"desc":@"\u6210\u529f\u8fd4\u56de\u6570\u636e"};
+                json = [NSDictionary dictionaryWithDictionary:dic];
+        //        json = nil;
+        
+        if ([json isKindOfClass:[NSString class]]||json ==nil||[json  isEqual:[NSNull null]]) {
+            maskView.hidden = YES;
+            homeWeb.hidden = YES;
+            
+        }
+        else if([json isKindOfClass:[NSDictionary class]])
+        {
+            NSNumber *status = [json safe_objectForKey:@"status"];
+            NSString *isshowwap = [json safe_objectForKey:@"isshowwap"];
+            NSString * wapurl = [json safe_objectForKey:@"wapurl"];
+            //1 成功  0失败
+            if ([status integerValue]==1) {
+                if ([isshowwap isEqualToString:@"1"]) {
+                    //加载wapurl
+                    self.url = wapurl;
+                    
+                    
+                    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.url]
+                                             
+                                                                  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                             
+                                                              timeoutInterval:TIMEOUT];
+                    [NSObject cancelPreviousPerformRequestsWithTarget:self];//可以成功取消全部。
+                    [self performSelector:@selector(removeActivityView) withObject:nil afterDelay:TIMEOUT];
+                    [homeWeb loadRequest:request];
+                    
+                    maskView.hidden = NO;
+                    homeWeb.hidden = NO;
+                    //显示引导页
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"addLauchImageView" object:nil];
+                    
+                    [ChangeTablebar hiddenTableBar];
+                }
+                else
+                {
+                    //加载自己的页面
+                    
+                    maskView.hidden = YES;
+                    homeWeb.hidden = YES;
+//                    [self requestHomeInfo];
+                    [ChangeTablebar showTableBar];
+                    self.url = @"";
+                }
+            }
+            
+        }
+        
+        
+        
+        
+    } failure:^(NSError *error) {
+        //加载自己的页面
+        maskView.hidden = YES;
+        homeWeb.hidden = YES;
+//        [self requestHomeInfo];
+        [ChangeTablebar showTableBar];
+        self.url = @"";
+        
+    }];
+    
+}
+
+
+
+//网络监听
+-(void)startToListenNow
+{
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+            {
+                [self tryToLoad];
+            }
+                break;
+            default:
+                break;
+        }
+    }];
+    //开始监听
+    [manager startMonitoring];
+}
+
+- (void)addMaskView
+{
+    maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREEN_HEIGHT)];
+    maskView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:maskView];
+    maskView.hidden = NO;
+}
+
+- (void)addHomeWebView
+{
+    NSLog(@"homecontroller");
+    
+    homeWeb = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREEN_HEIGHT)];
+    homeWeb.scalesPageToFit = YES;
+    homeWeb.delegate = self;
+    [self.view addSubview:homeWeb];
+    homeWeb.hidden = YES;
+    
+}
+
+#pragma private methods
+
 
 @end

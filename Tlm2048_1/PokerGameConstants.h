@@ -10,9 +10,9 @@
 #define PokerGameConstants_h
 
 // 屏幕高度
-#define SCREEN_HEIGHT         [[UIScreen mainScreen] bounds].size.height
-// 屏幕宽度
-#define SCREEN_WIDTH          [[UIScreen mainScreen] bounds].size.width
-
+//#define SCREEN_HEIGHT         [[UIScreen mainScreen] bounds].size.height
+//// 屏幕宽度
+//#define SCREEN_WIDTH          [[UIScreen mainScreen] bounds].size.width
+//
 
 #endif /* PokerGameConstants_h */
