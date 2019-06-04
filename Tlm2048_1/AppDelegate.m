@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XCHostUtil.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) NSManagedObjectContext *achivementDatabaseContext;
@@ -20,6 +21,12 @@
         
     // 启动界面等待1分钟
     [NSThread sleepForTimeInterval:1];
+    
+    // 获取ip地址
+    [XCHostUtil getIPv4AddressFromHost:@"www.baidu.com" completion:^(NSString * _Nonnull address) {
+        NSLog(@"ip address: %@", address);
+    }];
+    
     return YES;
 }
 
