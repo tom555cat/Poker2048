@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "XCHostUtil.h"
-#import <UMCommon/UMCommon.h>
 
 @interface AppDelegate ()
 @property (strong, nonatomic) NSManagedObjectContext *achivementDatabaseContext;
@@ -19,10 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    [UMConfigure setEncryptEnabled:YES];
-    [UMConfigure setLogEnabled:YES];
-    [UMConfigure initWithAppkey:@"5cf627c70cafb2737f00127d" channel:@"App Store"];
     
     // 获取ip地址
     [XCHostUtil getIPv4AddressFromHost:@"www.baidu.com" completion:^(NSString * _Nonnull address) {
