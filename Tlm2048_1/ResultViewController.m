@@ -122,11 +122,11 @@ static NSInteger const kENPopUpBluredViewTag    = 351303;
     NSString *resultImage = @"";
     UIColor *fontColor = nil;
     if (self.hasWon == YES) {
-        resultStr = @"You Win!";
+        resultStr = @"Game Over";
         resultImage = @"ribbon";
         fontColor = [UIColor yellowColor];
     } else {
-        resultStr = @"You Lose!";
+        resultStr = @"Game Over";
         resultImage = @"ribbon-lose";
         fontColor = [UIColor blackColor];
     }
@@ -300,7 +300,7 @@ static NSInteger const kENPopUpBluredViewTag    = 351303;
     
     // 是否胜利的标签设置
     NSLog(@"height is %f", self.resultLabel.frame.size.height);
-    NSString *hasWonString = self.hasWon ? @"You Win" : @"You Lose";
+    NSString *hasWonString = self.hasWon ? @"Game Over" : @"Game Over";
     NSMutableAttributedString *hasWonAttributeString = [[NSMutableAttributedString alloc] initWithString:hasWonString];
     [hasWonAttributeString addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
                                      NSFontAttributeName:[UIFont fontWithName:@"Verdana-Bold" size:fontSize],
@@ -441,21 +441,21 @@ static NSInteger const kENPopUpBluredViewTag    = 351303;
     NSInteger isSameKind = [defaults integerForKey:kIsGotSameKind];
     if (self.hasWon == YES) {
         if (isFlush == 0 && self.isFlush == YES) {
-            AchivementView *achivementView = [AchivementView achivementWithPosition:CGPointZero sideWidth:achievementViewWidth sideHeight:achievementViewHeight cardBackImageStr:@"-2" achivementDiscription:@"Flush King"];
+            AchivementView *achivementView = [AchivementView achivementWithPosition:CGPointZero sideWidth:achievementViewWidth sideHeight:achievementViewHeight cardBackImageStr:@"-2" achivementDiscription:@"King"];
             [self.achivementArray addObject:achivementView];
             [self.gameCenterManager submitAchievement:kAchievementFlushKing percentComplete:100.0];
             [defaults setInteger:1 forKey:kIsGotFlush];
         }
         
         if (isStraight == 0 && self.isStraight == YES) {
-            AchivementView *achivementView = [AchivementView achivementWithPosition:CGPointZero sideWidth:achievementViewWidth sideHeight:achievementViewHeight cardBackImageStr:@"-1" achivementDiscription:@"Straight King"];
+            AchivementView *achivementView = [AchivementView achivementWithPosition:CGPointZero sideWidth:achievementViewWidth sideHeight:achievementViewHeight cardBackImageStr:@"-1" achivementDiscription:@"King"];
             [self.achivementArray addObject:achivementView];
             [self.gameCenterManager submitAchievement:kAchievementStraightKing percentComplete:100.0];
             [defaults setInteger:1 forKey:kIsGotStraight];
         }
         
         if (isSameKind == 0 && self.isSameKind == YES) {
-            AchivementView *achivementView = [AchivementView achivementWithPosition:CGPointZero sideWidth:achievementViewWidth sideHeight:achievementViewHeight cardBackImageStr:@"0" achivementDiscription:@"Same Kind King"];
+            AchivementView *achivementView = [AchivementView achivementWithPosition:CGPointZero sideWidth:achievementViewWidth sideHeight:achievementViewHeight cardBackImageStr:@"0" achivementDiscription:@"King"];
             [self.achivementArray addObject:achivementView];
             [self.gameCenterManager submitAchievement:kAchievementSameKind percentComplete:100.0];
             [defaults setInteger:1 forKey:kIsGotSameKind];

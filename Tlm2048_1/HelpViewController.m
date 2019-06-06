@@ -93,7 +93,7 @@
     CGFloat x6 = x5 + pointLabelWidth + paddingLabel;
     CGFloat y6 = currentTop;
     HelpCharacterView *label2 = [[HelpCharacterView alloc] initWithFrame:CGRectMake(x6, y6, descriptionLabelWidth, cellHeight)];
-    label2.content = @"Pair";
+    label2.content = @"2 Number";
     label2.textColor = [UIColor blackColor];
     [self.view addSubview:label2];
     
@@ -142,7 +142,7 @@
     CGFloat x26 = x25 + pointLabelWidth + paddingLabel;
     CGFloat y26 = currentTop;
     HelpCharacterView *label22 = [[HelpCharacterView alloc] initWithFrame:CGRectMake(x26, y26, descriptionLabelWidth, cellHeight)];
-    label22.content = @"Three Of A Kind";
+    label22.content = @"3 Number";
     label22.textColor = [UIColor blackColor];
     [self.view addSubview:label22];
     
@@ -191,7 +191,7 @@
     CGFloat x36 = x35 + pointLabelWidth + paddingLabel;
     CGFloat y36 = currentTop;
     HelpCharacterView *label32 = [[HelpCharacterView alloc] initWithFrame:CGRectMake(x36, y36, descriptionLabelWidth, cellHeight)];
-    label32.content = @"Four Of A Kind";
+    label32.content = @"4 Number";
     label32.textColor = [UIColor blackColor];
     [self.view addSubview:label32];
 
@@ -240,7 +240,7 @@
     CGFloat x46 = x45 + pointLabelWidth + paddingLabel;
     CGFloat y46 = currentTop;
     HelpCharacterView *label42 = [[HelpCharacterView alloc] initWithFrame:CGRectMake(x46, y46, descriptionLabelWidth, cellHeight)];
-    label42.content = @"3 Card Flush";
+    label42.content = @"3 Flower";
     label42.textColor = [UIColor blackColor];
     [self.view addSubview:label42];
     
@@ -289,7 +289,7 @@
     CGFloat x56 = x55 + pointLabelWidth + paddingLabel;
     CGFloat y56 = currentTop;
     HelpCharacterView *label52 = [[HelpCharacterView alloc] initWithFrame:CGRectMake(x56, y56, descriptionLabelWidth, cellHeight)];
-    label52.content = @"4 Card Flush";
+    label52.content = @"4 Flower";
     label52.textColor = [UIColor blackColor];
     [self.view addSubview:label52];
     
@@ -338,7 +338,7 @@
     CGFloat x66 = x65 + pointLabelWidth + paddingLabel;
     CGFloat y66 = currentTop;
     HelpCharacterView *label62 = [[HelpCharacterView alloc] initWithFrame:CGRectMake(x66, y66, descriptionLabelWidth, cellHeight)];
-    label62.content = @"3 Card Straight";
+    label62.content = @"3 Increase";
     label62.textColor = [UIColor blackColor];
     [self.view addSubview:label62];
     
@@ -386,7 +386,7 @@
     CGFloat x76 = x75 + pointLabelWidth + paddingLabel;
     CGFloat y76 = currentTop;
     HelpCharacterView *label72 = [[HelpCharacterView alloc] initWithFrame:CGRectMake(x76, y76, descriptionLabelWidth, cellHeight)];
-    label72.content = @"4 Card Straight";
+    label72.content = @"4 Increase";
     label72.textColor = [UIColor blackColor];
     [self.view addSubview:label72];
     

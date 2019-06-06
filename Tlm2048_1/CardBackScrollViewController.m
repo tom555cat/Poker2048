@@ -637,7 +637,7 @@ NSInteger CARDBACK_NUMBER = 25;
         case -2:
         {
             NSInteger isErase4Flush = [defaults integerForKey:kIsGotFlush];
-            NSString *labelText = @"4 Flush";
+            NSString *labelText = @"4 Color";
             btnAttributeString = nil;
             NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:labelText];
             [attributeString addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
@@ -665,7 +665,7 @@ NSInteger CARDBACK_NUMBER = 25;
         case -1:
         {
             NSInteger isErase4Straight = [defaults integerForKey:kIsGotStraight];
-            NSString *labelText = @"4 Straight";
+            NSString *labelText = @"4 Increase";
             btnAttributeString = nil;
             NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:labelText];
             [attributeString addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
@@ -693,7 +693,7 @@ NSInteger CARDBACK_NUMBER = 25;
         case 0:
         {
             NSInteger isErase4SameKind = [defaults integerForKey:kIsGotSameKind];
-            NSString *labelText = @"4 Same Kind";
+            NSString *labelText = @"4 Number";
             btnAttributeString = nil;
             NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:labelText];
             [attributeString addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
