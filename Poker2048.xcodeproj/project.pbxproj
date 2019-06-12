@@ -10,6 +10,8 @@
 		13F76C22F5516A3E3F089D29 /* libPods-Poker2048.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 822B822A33290862E40A75EC /* libPods-Poker2048.a */; };
 		8E1D746A22A655D800A595B0 /* NSString+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1D746922A655D800A595B0 /* NSString+addition.m */; };
 		8E1D746D22A6567500A595B0 /* XCHostUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1D746C22A6567500A595B0 /* XCHostUtil.m */; };
+		8E4204C722AE40C500668025 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4204C622AE40C500668025 /* CoreTelephony.framework */; };
+		8E4204C922AE40D900668025 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4204C822AE40D900668025 /* libsqlite3.tbd */; };
 		E906CAD11ECBF775005C8A99 /* SwipeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E906CAD01ECBF775005C8A99 /* SwipeCommand.m */; };
 		E90A56241C2F73BE00E82ADC /* JWBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A56231C2F73BE00E82ADC /* JWBlurView.m */; };
 		E90A56281C2F83E400E82ADC /* AchivementView.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A56271C2F83E400E82ADC /* AchivementView.m */; };
@@ -91,6 +93,8 @@
 		8E1D746922A655D800A595B0 /* NSString+addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+addition.m"; sourceTree = "<group>"; };
 		8E1D746B22A6567500A595B0 /* XCHostUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCHostUtil.h; sourceTree = "<group>"; };
 		8E1D746C22A6567500A595B0 /* XCHostUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCHostUtil.m; sourceTree = "<group>"; };
+		8E4204C622AE40C500668025 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8E4204C822AE40D900668025 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E906CACF1ECBF775005C8A99 /* SwipeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeCommand.h; sourceTree = "<group>"; };
 		E906CAD01ECBF775005C8A99 /* SwipeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeCommand.m; sourceTree = "<group>"; };
 		E90A56221C2F73BE00E82ADC /* JWBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWBlurView.h; sourceTree = "<group>"; };
@@ -198,11 +202,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93BC4191CB6A52800B42C4A /* SystemConfiguration.framework in Frameworks */,
+				8E4204C922AE40D900668025 /* libsqlite3.tbd in Frameworks */,
+				E93BC41B1CB6A53800B42C4A /* libz.tbd in Frameworks */,
+				8E4204C722AE40C500668025 /* CoreTelephony.framework in Frameworks */,
 				E967A5571ECD9168002B891E /* GameKit.framework in Frameworks */,
 				E93BC41F1CB6A55A00B42C4A /* libc++.tbd in Frameworks */,
 				E93BC41D1CB6A54600B42C4A /* libsqlite3.0.tbd in Frameworks */,
-				E93BC41B1CB6A53800B42C4A /* libz.tbd in Frameworks */,
-				E93BC4191CB6A52800B42C4A /* SystemConfiguration.framework in Frameworks */,
 				E93BC40E1CB6A4CD00B42C4A /* libWeChatSDK.a in Frameworks */,
 				E93BC4121CB6A4CD00B42C4A /* libWeChatSDK.a in Frameworks */,
 				E93BC4101CB6A4CD00B42C4A /* libWeChatSDK.a in Frameworks */,
@@ -230,10 +236,19 @@
 		42AD99E99AB21F71DC0788C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E4204C822AE40D900668025 /* libsqlite3.tbd */,
+				8E4204C622AE40C500668025 /* CoreTelephony.framework */,
 				E967A5561ECD9168002B891E /* GameKit.framework */,
 				822B822A33290862E40A75EC /* libPods-Poker2048.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E4204CC22AE470400668025 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SDK;
 			sourceTree = "<group>";
 		};
 		DE54F21764F36B26B73C13DB /* Pods */ = {
@@ -530,6 +545,7 @@
 		E9DAD9021C036D7200D5A9CD /* Poker2048 */ = {
 			isa = PBXGroup;
 			children = (
+				8E4204CC22AE470400668025 /* SDK */,
 				E9499C861EC83D6D0041159F /* util */,
 				E93BC3E61CB6A4CD00B42C4A /* WeixinActivity */,
 				E9CA051A1CA1CAFE00CEB175 /* Resource */,
@@ -953,7 +969,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NE8VK2242L;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tlm2048_1",
+				);
 				INFOPLIST_FILE = Tlm2048_1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -983,7 +1002,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NE8VK2242L;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tlm2048_1",
+				);
 				INFOPLIST_FILE = Tlm2048_1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
